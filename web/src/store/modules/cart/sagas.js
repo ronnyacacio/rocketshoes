@@ -3,6 +3,7 @@ import { toast } from 'react-toastify';
 
 import { addToCartSuccess, updateAmountSuccess } from './actions';
 import api from '../../../services/api';
+import history from '../../../services/history';
 import { formatPrice } from '../../../util/format';
 
 function* addToCart({ id }) {
@@ -34,6 +35,7 @@ function* addToCart({ id }) {
     };
 
     yield put(addToCartSuccess(data));
+    history.push('/cart');
   }
 }
 
