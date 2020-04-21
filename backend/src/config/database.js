@@ -5,7 +5,7 @@ module.exports = {
     client: 'pg',
     connection: {
       host: 'localhost',
-      port: '5432',
+      port: '5434',
       user: 'postgres',
       password: 'docker',
       database: 'rocketshoes',
