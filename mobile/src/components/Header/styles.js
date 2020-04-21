@@ -1,23 +1,23 @@
 import styled from 'styled-components/native';
 
-import colors from '../../styles/colors';
-
 export const Container = styled.View`
   flex-direction: row;
   justify-content: space-between;
   padding: 20px;
-  background: ${colors.dark};
+  background: #191920;
   height: 70px;
 `;
 
 export const Logo = styled.Image`
   width: 185px;
   height: 24px;
+  margin-top: 8px;
 `;
 
 export const BasketContainer = styled.TouchableOpacity`
   height: 24px;
   width: 24px;
+  margin-top: 8px;
 `;
 
 export const ItemCount = styled.Text`
@@ -27,7 +27,7 @@ export const ItemCount = styled.Text`
   right: -8px;
   min-width: 18px;
   min-height: 18px;
-  background: ${colors.primary};
+  background: #7159c1;
   color: #fff;
   font-size: 12px;
   padding: 2px;
