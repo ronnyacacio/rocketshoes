@@ -42,7 +42,7 @@ export default class Main extends React.Component {
             <ProductContainer>
               <ProductImage source={{ uri: item.image }} />
               <ProductTitle>{item.title}</ProductTitle>
-              <ProductPrice>100</ProductPrice>
+              <ProductPrice>{`R$ ${item.price}`}</ProductPrice>
               <ButtonAdd>
                 <ProductAmount>
                   <Icon name="add-shopping-cart" color="#FFF" size={20} />
