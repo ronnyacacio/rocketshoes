@@ -1,17 +1,31 @@
 import React from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import { connect } from 'react-redux';
 
 import logo from '../../assets/logo.png';
-import { Container, Logo, BasketContainer, ItemCount } from './styles';
+import {
+  Container,
+  Logo,
+  BasketContainer,
+  ItemCount,
+  ButtonRocket,
+} from './styles';
 
-export default function Header() {
+function Header({ navigation, cartSize }) {
   return (
     <Container>
-      <Logo source={logo} />
-      <BasketContainer>
+      <ButtonRocket onPress={() => navigation.navigate('Main')}>
+        <Logo source={logo} />
+      </ButtonRocket>
+
+      <BasketContainer onPress={() => navigation.navigate('Cart')}>
         <Icon name="shopping-basket" size={24} color="#FFF" />
-        <ItemCount>3</ItemCount>
+        <ItemCount>{cartSize}</ItemCount>
       </BasketContainer>
     </Container>
   );
 }
+
+export default connect((state) => ({
+  cartSize: state.cart.length,
+}))(Header);

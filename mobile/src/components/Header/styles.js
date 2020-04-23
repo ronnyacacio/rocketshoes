@@ -8,6 +8,8 @@ export const Container = styled.View`
   height: 70px;
 `;
 
+export const ButtonRocket = styled.TouchableOpacity``;
+
 export const Logo = styled.Image`
   width: 185px;
   height: 24px;

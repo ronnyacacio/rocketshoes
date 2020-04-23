@@ -1,7 +1,9 @@
 import React from 'react';
-import { FlatList, Alert } from 'react-native';
+import { FlatList } from 'react-native';
+import { connect } from 'react-redux';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
+// import { formatPrice } from '../../util/format';
 import api from '../../services/api';
 import {
   Container,
@@ -15,7 +17,7 @@ import {
   ButtonAddText,
 } from './styles';
 
-export default class Main extends React.Component {
+class Main extends React.Component {
   state = {
     products: [],
   };
@@ -26,7 +28,21 @@ export default class Main extends React.Component {
 
   loadProducts = async () => {
     const response = await api.get('/products');
-    this.setState({ products: response.data });
+
+    const data = response.data.map((product) => ({
+      ...product,
+      priceFormatted: product.price,
+    }));
+
+    this.setState({ products: data });
+  };
+
+  handleAddProduct = (product) => {
+    const { dispatch } = this.props;
+    dispatch({
+      type: 'ADD_TO_CART',
+      product,
+    });
   };
 
   render() {
@@ -42,8 +58,8 @@ export default class Main extends React.Component {
             <ProductContainer>
               <ProductImage source={{ uri: item.image }} />
               <ProductTitle>{item.title}</ProductTitle>
-              <ProductPrice>{`R$ ${item.price}`}</ProductPrice>
-              <ButtonAdd>
+              <ProductPrice>{`R$ ${item.priceFormatted}`}</ProductPrice>
+              <ButtonAdd onPress={() => this.handleAddProduct(item)}>
                 <ProductAmount>
                   <Icon name="add-shopping-cart" color="#FFF" size={20} />
                   <ProductAmountText>3</ProductAmountText>
@@ -57,3 +73,5 @@ export default class Main extends React.Component {
     );
   }
 }
+
+export default connect()(Main);
