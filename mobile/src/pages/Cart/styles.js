@@ -1,6 +1,5 @@
 import styled from 'styled-components/native';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import { opacify } from 'polished';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 export const Container = styled.View`
   flex: 1;
@@ -9,7 +8,7 @@ export const Container = styled.View`
 
 export const BoxDelivery = styled.View`
   height: 500px;
-  margin: 20px 20px;
+  margin: 20px;
   background: #fff;
   border-radius: 4px;
   align-items: center;
@@ -21,7 +20,7 @@ export const Product = styled.View`
 
 export const Body = styled.View`
   flex-direction: row;
-  padding: 20px 20px;
+  padding: 20px;
   align-items: center;
 `;
 
@@ -36,7 +35,7 @@ export const Info = styled.View`
 `;
 
 export const IconTrash = styled(Icon).attrs({
-  name: 'trash-can',
+  name: 'delete',
   size: 20,
   color: '#7159c1',
 })``;
@@ -72,7 +71,9 @@ export const IconAmount = styled(Icon).attrs({
   size: 20,
 })``;
 
-export const Input = styled.TextInput`
+export const Input = styled.TextInput.attrs({
+  editable: false,
+})`
   width: 40px;
   background: #fff;
   margin: 0 5px;
@@ -108,4 +109,23 @@ export const FinallyButton = styled.TouchableOpacity`
 export const FinallyButtonText = styled.Text`
   color: #fff;
   font-weight: bold;
+`;
+
+export const ViewEmpty = styled.View`
+  margin: 20px 20px;
+  background: #fff;
+  align-items: center;
+  border-radius: 4px;
+`;
+
+export const IconEmpty = styled(Icon).attrs({
+  name: 'remove-shopping-cart',
+  color: '#ddd',
+  size: 80,
+})`
+  margin-bottom: 10px;
+`;
+
+export const TextEmpty = styled.Text`
+  font-size: 25px;
 `;
