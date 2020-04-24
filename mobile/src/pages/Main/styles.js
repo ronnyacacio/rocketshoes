@@ -15,16 +15,16 @@ export const ProductContainer = styled.View`
   width: 220px;
 `;
 
-export const ProductImage = styled.Image`
+export const Image = styled.Image`
   height: 200px;
   width: 200px;
 `;
 
-export const ProductTitle = styled.Text`
+export const Title = styled.Text`
   font-size: 17px;
 `;
 
-export const ProductPrice = styled.Text`
+export const Price = styled.Text`
   margin: 14px 0px;
   font-size: 20px;
   margin-bottom: 14px;
@@ -39,7 +39,7 @@ export const ButtonAdd = styled.TouchableOpacity`
   margin-top: auto;
 `;
 
-export const ProductAmount = styled.View`
+export const Amount = styled.View`
   padding: 12px;
   background: ${darken(0.03, '#7159c1')};
   border-top-left-radius: 4px;
@@ -48,7 +48,7 @@ export const ProductAmount = styled.View`
   align-items: center;
 `;
 
-export const ProductAmountText = styled.Text`
+export const AmountText = styled.Text`
   color: #fff;
   margin: 0px 4px 0px 10px;
 `;

@@ -80,7 +80,7 @@ export const Input = styled.TextInput.attrs({
   border-radius: 4px;
 `;
 
-export const Total = styled.Text`
+export const SubTotal = styled.Text`
   font-size: 16px;
   font-weight: bold;
 `;
@@ -90,7 +90,7 @@ export const TextTotal = styled.Text`
   color: #999;
 `;
 
-export const Value = styled.Text`
+export const Total = styled.Text`
   margin-bottom: 50px;
   font-weight: bold;
   font-size: 30px;

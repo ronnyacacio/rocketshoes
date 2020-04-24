@@ -1,7 +1,10 @@
 import React from 'react';
+import { FlatList, TouchableOpacity } from 'react-native';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { FlatList } from 'react-native';
 
+import { formatPrice } from '../../util/format';
+import * as CartActions from '../../store/modules/cart/actions';
 import {
   Container,
   BoxDelivery,
@@ -16,9 +19,9 @@ import {
   Amount,
   Input,
   IconAmount,
-  Total,
+  SubTotal,
   TextTotal,
-  Value,
+  Total,
   FinallyButton,
   FinallyButtonText,
   ViewEmpty,
@@ -26,7 +29,15 @@ import {
   TextEmpty,
 } from './styles';
 
-function Cart({ cart }) {
+function Cart({ cart, total, removeFromCart, updateAmount }) {
+  function increment(product) {
+    updateAmount(product.id, product.amount + 1);
+  }
+
+  function decrement(product) {
+    updateAmount(product.id, product.amount - 1);
+  }
+
   return (
     <Container>
       {cart.length !== 0 ? (
@@ -43,21 +54,27 @@ function Cart({ cart }) {
                     <Title>{product.title}</Title>
                     <Price>{product.priceFormatted}</Price>
                   </Info>
-                  <IconTrash />
+                  <TouchableOpacity onPress={() => removeFromCart(product.id)}>
+                    <IconTrash />
+                  </TouchableOpacity>
                 </Body>
                 <Footer>
                   <Amount>
-                    <IconAmount name="remove-circle-outline" />
-                    <Input value="1" />
-                    <IconAmount name="add-circle-outline" />
+                    <TouchableOpacity onPress={() => decrement(product)}>
+                      <IconAmount name="remove-circle-outline" />
+                    </TouchableOpacity>
+                    <Input value={String(product.amount)} />
+                    <TouchableOpacity onPress={() => increment(product)}>
+                      <IconAmount name="add-circle-outline" />
+                    </TouchableOpacity>
                   </Amount>
-                  <Total>R$ 100,00</Total>
+                  <SubTotal>{product.subtotal}</SubTotal>
                 </Footer>
               </Product>
             )}
           />
           <TextTotal>TOTAL</TextTotal>
-          <Value>R$ 1000,00</Value>
+          <Total>{total}</Total>
           <FinallyButton>
             <FinallyButtonText>FINALIZAR PEDIDO</FinallyButtonText>
           </FinallyButton>
@@ -73,7 +90,18 @@ function Cart({ cart }) {
 }
 
 const mapStateToProps = (state) => ({
-  cart: state.cart,
+  cart: state.cart.map((product) => ({
+    ...product,
+    subtotal: formatPrice(product.price * product.amount),
+  })),
+  total: formatPrice(
+    state.cart.reduce((total, product) => {
+      return total + product.price * product.amount;
+    }, 0)
+  ),
 });
 
-export default connect(mapStateToProps)(Cart);
+const mapDispatchToProps = (dispatch) =>
+  bindActionCreators(CartActions, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(Cart);
