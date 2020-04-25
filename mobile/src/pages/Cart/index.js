@@ -3,7 +3,7 @@ import { FlatList, TouchableOpacity } from 'react-native';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import { formatPrice } from '../../util/format';
+// import { formatPrice } from '../../util/format';
 import * as CartActions from '../../store/modules/cart/actions';
 import {
   Container,
@@ -29,18 +29,18 @@ import {
   TextEmpty,
 } from './styles';
 
-function Cart({ cart, total, removeFromCart, updateAmount }) {
+function Cart({ cart, total, removeFromCart, updateAmountRequest }) {
   function increment(product) {
-    updateAmount(product.id, product.amount + 1);
+    updateAmountRequest(product.id, product.amount + 1);
   }
 
   function decrement(product) {
-    updateAmount(product.id, product.amount - 1);
+    updateAmountRequest(product.id, product.amount - 1);
   }
 
   return (
     <Container>
-      {cart.length !== 0 ? (
+      {cart.length > 0 ? (
         <BoxDelivery>
           <FlatList
             data={cart}
@@ -92,13 +92,11 @@ function Cart({ cart, total, removeFromCart, updateAmount }) {
 const mapStateToProps = (state) => ({
   cart: state.cart.map((product) => ({
     ...product,
-    subtotal: formatPrice(product.price * product.amount),
+    subtotal: product.price * product.amount,
   })),
-  total: formatPrice(
-    state.cart.reduce((total, product) => {
-      return total + product.price * product.amount;
-    }, 0)
-  ),
+  total: state.cart.reduce((total, product) => {
+    return total + product.price * product.amount;
+  }, 0),
 });
 
 const mapDispatchToProps = (dispatch) =>

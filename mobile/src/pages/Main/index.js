@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-import { formatPrice } from '../../util/format';
+// import { formatPrice } from '../../util/format';
 import * as CartActions from '../../store/modules/cart/actions';
 import api from '../../services/api';
 import {
@@ -33,15 +33,15 @@ class Main extends React.Component {
 
     const data = response.data.map((product) => ({
       ...product,
-      priceFormatted: formatPrice(product.price),
+      priceFormatted: product.price,
     }));
 
     this.setState({ products: data });
   };
 
-  handleAddProduct = (product) => {
-    const { addToCart } = this.props;
-    addToCart(product);
+  handleAddProduct = (id) => {
+    const { addToCartRequest } = this.props;
+    addToCartRequest(id);
   };
 
   render() {
@@ -59,7 +59,7 @@ class Main extends React.Component {
               <Image source={{ uri: item.image }} />
               <Title>{item.title}</Title>
               <Price>{`R$ ${item.priceFormatted}`}</Price>
-              <ButtonAdd onPress={() => this.handleAddProduct(item)}>
+              <ButtonAdd onPress={() => this.handleAddProduct(item.id)}>
                 <Amount>
                   <Icon name="add-shopping-cart" color="#FFF" size={20} />
                   <AmountText>{amount[item.id] || 0}</AmountText>
