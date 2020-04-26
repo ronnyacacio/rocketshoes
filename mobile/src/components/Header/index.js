@@ -1,6 +1,6 @@
 import React from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import logo from '../../assets/logo.png';
 import {
@@ -11,7 +11,9 @@ import {
   ButtonRocket,
 } from './styles';
 
-function Header({ navigation, cartSize }) {
+export default function Header({ navigation }) {
+  const cartSize = useSelector((state) => state.cart.length);
+
   return (
     <Container>
       <ButtonRocket onPress={() => navigation.navigate('Main')}>
@@ -25,7 +27,3 @@ function Header({ navigation, cartSize }) {
     </Container>
   );
 }
-
-export default connect((state) => ({
-  cartSize: state.cart.length,
-}))(Header);
