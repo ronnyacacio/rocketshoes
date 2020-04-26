@@ -2,7 +2,7 @@ import React from 'react';
 import { FlatList, TouchableOpacity } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 
-// import { formatPrice } from '../../util/format';
+import { formatPrice } from '../../util/format';
 import * as CartActions from '../../store/modules/cart/actions';
 import {
   Container,
@@ -29,10 +29,12 @@ import {
 } from './styles';
 
 export default function Cart() {
-  const total = useSelector((state) =>
-    state.cart.reduce((sumTotal, product) => {
-      return sumTotal + product.price * product.amount;
-    }, 0)
+  const total = formatPrice(
+    useSelector((state) =>
+      state.cart.reduce((sumTotal, product) => {
+        return sumTotal + product.price * product.amount;
+      }, 0)
+    )
   );
 
   const cart = useSelector((state) =>

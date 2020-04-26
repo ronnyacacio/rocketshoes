@@ -3,7 +3,7 @@ import { FlatList } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-// import { formatPrice } from '../../util/format';
+import { formatPrice } from '../../util/format';
 import * as CartActions from '../../store/modules/cart/actions';
 import api from '../../services/api';
 import {
@@ -35,7 +35,7 @@ export default function Main() {
 
     const data = response.data.map((product) => ({
       ...product,
-      priceFormatted: product.price,
+      priceFormatted: formatPrice(product.price),
     }));
 
     setProducts(data);
