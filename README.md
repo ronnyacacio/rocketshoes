@@ -1,7 +1,5 @@
-# rocketshoes
-
 <h1 align="center">
-    <img alt="RocketShoes" title="#rocketshoes" src=".github/logo.png" width="200px" />
+    <img alt="RocketShoes" title="#rocketshoes" src=".github/logo.png" width="300px" />
 </h1>
 
 <h4 align="center">
