@@ -2,9 +2,9 @@
     <img alt="RocketShoes" title="#rocketshoes" src=".github/rocketshoes.png" width="300px" />
 </h1>
 
-<h4 align="center">
-  🥊 BootCamp
-</h4>
+## 💻 Projeto
+
+O RocketShoes é uma aplicação de e-commerce de tênis, utiliza um frontend trabalho em cima da arquitetura flux utilizando redux e ainda mais usei a api do pagarme para realizar uma transação falsa utilizando cartões de creditos reais. Além disso visa aumentar as minhas habilidades como programador web, principalmente na área da arquitetura flux e transações bancárias.
 
 |                         |                      |
 | ----------------------- | -------------------- |
@@ -28,7 +28,3 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 <h1 align="center">
     <img alt="RocketShoes" title="#rocketshoes" src=".github/card.png" width="100%" />
 </h1>
-
-## 💻 Projeto
-
-O RocketShoes é uma aplicação de e-commerce de tênis, utiliza um frontend trabalho em cima da arquitetura flux utilizando redux e ainda mais usei a api do pagarme para realizar uma transação falsa utilizando cartões de creditos reais. Além disso visa aumentar as minhas habilidades como programador web, principalmente na área da arquitetura flux e transações bancárias.
