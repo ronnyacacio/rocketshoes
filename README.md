@@ -36,6 +36,7 @@ O RocketShoes é uma aplicação de e-commerce de tênis, utiliza um frontend tr
 
 <br />
 
+## 🌐 Preview
 |                         |                      |
 | ----------------------- | -------------------- |
 | ![](.github/mobile.png) | ![](.github/web.png) | ![](.github/Form.png) |
