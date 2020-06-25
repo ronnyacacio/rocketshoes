@@ -34,9 +34,13 @@
 
 O RocketShoes é uma aplicação de e-commerce de tênis, utiliza um frontend trabalho em cima da arquitetura flux utilizando redux e ainda mais usei a api do pagarme para realizar uma transação falsa utilizando cartões de creditos reais. Além disso visa aumentar as minhas habilidades como programador web, principalmente na área da arquitetura flux e transações bancárias.
 
+<br />
+
 |                         |                      |
 | ----------------------- | -------------------- |
 | ![](.github/mobile.png) | ![](.github/web.png) | ![](.github/Form.png) |
+
+<br />
 
 ## ⚡ Tecnologias
 
@@ -51,8 +55,16 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - [Pagarme API](https://docs.pagar.me/docs/overview-principal)
 - [React Credit Cards](https://github.com/amarofashion/react-credit-cards)
 
+<br />
+
 ## 💰 Transação com Pagarme Api
 
 <h1 align="center">
     <img alt="RocketShoes" title="#rocketshoes" src=".github/card.png" width="100%" />
 </h1>
+
+<br />
+
+<p align="center">
+  Feito com 💜 by <a href="https://www.linkedin.com/in/ronnyacacio/"> Ronny Acácio </a>
+</p>
