@@ -9,7 +9,7 @@
     "@testing-library/user-event": "^7.1.2",
     "axios": "^0.19.2",
     "history": "^4.10.1",
-    "immer": "^6.0.3",
+    "immer": "^9.0.6",
     "pagarme": "^4.8.0",
     "polished": "^3.5.1",
     "react": "^16.13.1",
